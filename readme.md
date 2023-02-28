@@ -8,7 +8,7 @@ hello fren! here you can search for anyone's repositories on GitHub, be it your 
 4. If you're feeling judgy, sort the repositories by stars or forks using the handy drop-down menu.
 5. If you're feeling generous, go ahead and give them a star or fork. Or both. Or neither. I won't judge.
 ## Technology Used
-- React - The best thing since sliced bread. Or Davanage Benne Dosa. Or garlic bread. Or...you get the point.
+- React - The best thing since sliced bread. Or Davanagere Benne Dosa. Or garlic bread. Or...you get the point.
 - GitHub API - The magical portal to all the code in the world. Or at least, all the code on GitHub.
 - FontAwesome - Because who doesn't love pretty icons to jazz up their app? (And because I couldn't figure out how to make my own icons in time.)
 ## Future *Possible* Updates, If I Don't End Up Starting A New Project Every Weekend
