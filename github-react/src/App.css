@@ -3,9 +3,31 @@
   margin: 0 auto;
   padding: 2rem;
   font-family: "Space Grotesk", sans-serif;
-  
 }
 
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spinner {
+  width: 64px;
+  height: 64px;
+  border: 8px solid;
+  border-color: #0077b5 transparent #0077b5 transparent;
+  border-radius: 50%;
+  animation: spin-anim 1.2s linear infinite;
+}
+
+@keyframes spin-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 h1 {
   font-size: 3rem;
@@ -29,33 +51,36 @@ label {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-input[type='text'] {
+input[type="text"] {
   font-size: 1.5rem;
   padding: 1rem;
   border: none;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.2), inset -3px -3px 3px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 3px 3px 3px rgba(0, 0, 0, 0.2),
+    inset -3px -3px 3px rgba(255, 255, 255, 0.5);
   color: #000;
   width: 100%;
   margin-bottom: 2rem;
 }
 
-button[type='submit'] {
+button[type="submit"] {
   font-size: 1.5rem;
   padding: 0.8rem;
   border: none;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.5);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2),
+    -10px -10px 30px rgba(255, 255, 255, 0.5);
   color: #000;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
-button[type='submit']:hover {
+button[type="submit"]:hover {
   transform: translateY(-2px);
-  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2), -8px -8px 20px rgba(255, 255, 255, 0.5);
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.2),
+    -8px -8px 20px rgba(255, 255, 255, 0.5);
 }
 
 select {
@@ -64,7 +89,8 @@ select {
   border: none;
   border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2), -10px -10px 30px rgba(255, 255, 255, 0.5);
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2),
+    -10px -10px 30px rgba(255, 255, 255, 0.5);
   color: #000;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
