@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import { faStar, faCodeBranch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function App() {
   const [username, setUsername] = useState('');
   const [repositories, setRepositories] = useState([]);
   const [sortBy, setSortBy] = useState('stars');
+  const [error, setError] = useState('');
 
   async function searchForUser(username) {
     try {
@@ -15,11 +14,15 @@ function App() {
         const repositories = await response.json();
         setRepositories(repositories);
         setUsername(username);
+        setError('');
       } else {
         throw new Error('Failed to fetch repositories');
       }
     } catch (error) {
       console.error(error);
+      setRepositories([]);
+      setUsername('');
+      setError('Could not find user or fetch repositories');
     }
   }
 
@@ -45,7 +48,7 @@ function App() {
         }}
       >
         <label>
-          Enter Github username - 
+          Enter Github username -
           
           <input
             type="text"
@@ -62,16 +65,24 @@ function App() {
           <option value="forks">Forks</option>
         </select>
       </label>
-      <ul>
-  {sortedRepositories.map((repository) => (
-    <li key={repository.id}>
-      <a href={repository.html_url}>{repository.name}</a>
-      <br />
-      <FontAwesomeIcon icon={faStar} /> {repository.stargazers_count} stars {'  '}
-      <FontAwesomeIcon icon={faCodeBranch} /> {repository.forks_count} forks
-    </li>
-  ))}
-</ul>
+      {error ? (
+        <p>{error}</p>
+      ) : (
+        <ul>
+          {sortedRepositories.map((repository) => (
+            <li key={repository.id}>
+              <a href={repository.html_url}>{repository.name}</a>
+              {' - '}
+              <span className="icon">
+                <i className="fas fa-star"></i> {repository.stargazers_count} stars,{' '}
+              </span>
+              <span className="icon">
+                <i className="fas fa-code-branch"></i> {repository.forks_count} forks
+              </span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
