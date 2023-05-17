@@ -16,6 +16,6 @@ hello fren! here you can search for anyone's repositories on GitHub, be it your 
 2. Add a "Stalker Mode" that lets you follow your favorite developers and receive notifications when they commit new code.
 3. Add an "Easter Egg" that launches a game of Snake when you hit a secret key combination.
 ## Support
-If you're having trouble using this app, feel free to scream into a pillow. Or, you know, reach out to me at contct@taufeeq.ml. I'll do my best to help you out! (Or, you know, scream into a pillow with you.)
+If you're having trouble using this app, feel free to scream into a pillow. Or, you know, reach out to me at contct@taufeeq.ml. I'll do my best to help you out! (Or, scream into a pillow with you.)
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
