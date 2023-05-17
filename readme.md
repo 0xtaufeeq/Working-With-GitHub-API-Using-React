@@ -1,4 +1,4 @@
-# Working-With-GitHub-API-Using-React
+# GitHub Repository Search Using React
 hello fren! here you can search for anyone's repositories on GitHub, be it your favorite developer or your "hater" who always steals your code!
 
 ## How to Use
