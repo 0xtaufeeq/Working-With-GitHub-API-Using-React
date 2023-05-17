@@ -32,13 +32,14 @@ function App() {
 
   let sortedRepositories = repositories;
   if (sortBy === 'stars') {
-    sortedRepositories = repositories.sort((a, b) => b.stargazers_count - a.stargazers_count);
+    sortedRepositories = repositories.slice().sort((a, b) => b.stargazers_count - a.stargazers_count);
   } else if (sortBy === 'forks') {
-    sortedRepositories = repositories.sort((a, b) => b.forks_count - a.forks_count);
+    sortedRepositories = repositories.slice().sort((a, b) => b.forks_count - a.forks_count);
   }
 
   return (
     <div className="App">
+      <img src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' alt='github logo' width='100px' height='100px'></img>
       <link href="https://fonts.googleapis.com/css?family=Space+Grotesk" rel="stylesheet"></link>
       <h1>Github Repository Search</h1>
       <form
@@ -48,8 +49,7 @@ function App() {
         }}
       >
         <label>
-          Enter Github username -
-          
+          Enter Github username - 
           <input
             type="text"
             value={username}
@@ -58,6 +58,7 @@ function App() {
         </label>
         <button type="submit">Search</button>
       </form>
+      
       <label>
         Sort by - &nbsp;
         <select value={sortBy} onChange={handleSortChange}>
@@ -65,24 +66,25 @@ function App() {
           <option value="forks">Forks</option>
         </select>
       </label>
-      {error ? (
-        <p>{error}</p>
-      ) : (
-        <ul>
-          {sortedRepositories.map((repository) => (
-            <li key={repository.id}>
-              <a href={repository.html_url}>{repository.name}</a>
-              {' - '}
-              <span className="icon">
-                <i className="fas fa-star"></i> {repository.stargazers_count} stars,{' '}
-              </span>
-              <span className="icon">
-                <i className="fas fa-code-branch"></i> {repository.forks_count} forks
-              </span>
-            </li>
-          ))}
-        </ul>
-      )}
+      
+      {error && <p>{error}</p>}
+      
+      <ul>
+        {sortedRepositories.map((repository) => (
+          <li key={repository.id}>
+            <a href={repository.html_url}>{repository.name}</a>
+            <br />
+            <span className="icon">
+              <i className="fas fa-star"></i> {repository.stargazers_count} stars,{' '}
+            </span>
+            <span className="icon">
+              <i className="fas fa-code-branch"></i> {repository.forks_count} forks
+            </span>
+            <p>{repository.owner.login}</p>
+            <p>{repository.description}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
